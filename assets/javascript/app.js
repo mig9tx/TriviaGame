@@ -1,8 +1,10 @@
 $(document).ready(function () {
-//global variables
-    
+    //global variables
+
     var rightAnswer = 0;
     var wrongAnswer = 0;
+
+    $('.startBtn').on('click')
 
     //Questions for the trivia game. They are an object with an array within for the answers.
     var questions = {
@@ -78,23 +80,28 @@ $(document).ready(function () {
         }],
 
     };
-    
-    $(window).on("load", initialize);
-function initialize(){
-//start button
-//start image
-};
 
-function startGame(){
-    //sets timer allowing the user 20 seconds to answer the question
-    //retrieves first question and displays it
-    //adds event listeners to each button(answer)
-    //waits for the user to click a button
-    //once answered diplays correct/incorrect message + picture + facts
-    //add 1 to rightAnswer or wrongAnswer depending on choice
-    //after time passes, calls the next question and displays it
 
-}
+    function initialize() {
+        //start button
+        //start image
+    };
+    initialize();
+
+    function startGame() {
+        //sets timer allowing the user 20 seconds to answer the question
+        //retrieves first question and displays it
+        //adds event listeners to each button(answer)
+        //waits for the user to click a button
+        //once answered diplays correct/incorrect message + picture + facts
+        //add 1 to rightAnswer or wrongAnswer depending on choice
+        //after time passes, calls the next question and displays it
+        var button = $("#buttons").html("<div>START</div>");
+        button.addClass("btn btn-primary btn-lg");
+        var question = $("#Question").html(questions.q1);
+        var question1 = $("#Question").append(questions.q1);
+        console.log(questions.q1);
+    }
 
 
 

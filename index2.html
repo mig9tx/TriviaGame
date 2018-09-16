@@ -19,36 +19,97 @@
     </div>
 
     <div class="container">
+        <div id="timer"></div>
         <div id="Question"></div>
         <div id="buttons"></div>
+        <div id="choiceButtons"></div>
     </div>
-
-
-
-
-
+    
+    
+    
+    
+    
     <script>
-        var question='';
-
-
-        // var button = $("#buttons").html("<div>START</div>");
-        // button.addClass("btn btn-primary btn-lg");
-        var question = $("#Question").html(questions.questionOne);
-        // var question1 = $("#Question").append(questions.q1);
+        // Global Variables
+        var count=30;
+        var questionIntervalId;
         
-        var questions = {
-        questionOne: "Which was the first film released in 2008 that began the MCU as we know it?",
-        answers1: [{
-            a: "Iron Man",
-            b: "Thor",
-            c: "Captain America: The First Avenger",
-            d: "Marvel's The Avengers"
+
+        var questions = [{
+            question: 'Which was the first film released in 2008 that began the MCU as we know it?',
+            choices: ['Iron Man', 'Thor', 'Captain America: The First Avenger', 'Marvel\'s The Avengers'],
+            answer: 'Iron Man',
+        }, {
+            question: 'The Incredible Hulk was the second movie released in 2008. Which actor played the role of Bruce Banner?',
+            choices: ['Eric Bana','Mark Ruffalo','Edward Norton','Mark Wahlberg'],
+            answer: 'Edward Norton',
         }]
-    }
-        // $("#buttons").on('click');
-            
+        var rightAnswers;
+        var wrongAnswers;
+        console.log(questions[0].question);
         
-        console.log(questions.q1);
+        $(document).ready(function () {
+            //Functions
+            function initialize() {
+                var button = $("#buttons").html("<div>START</div>");
+                button.addClass("btn btn-primary btn-lg");
+                gameStart();
+            };
+            initialize();
+
+            function gameStart() {
+                $("#buttons").on("click", function () {
+                    $("#buttons").hide("#buttons");
+                    question1();
+                    choices();
+                })
+            };
+
+
+
+            function choices() {
+                for (var i = 0; i < questions[0].choices.length; i++) {
+                    var choiceButtons = $("<button>");
+                    choiceButtons.addClass("btn btn-primary btn-lg");
+                    choiceButtons.attr("data-choices", questions[0].choices[i]);
+                    choiceButtons.text(questions[0].choices[i]);
+                    $("#choiceButtons").append(choiceButtons);
+                    console.log(choiceButtons);
+                };
+                
+            };
+            function question1() {
+                var question1 = $("#Question");
+                question1.html(questions[0].question);
+                questionIntervalId = setInterval(questionTimeout, 1000);        
+            };
+            
+
+            function questionTimeout() {
+                count--;
+                console.log(count);
+                $('#timer').html("Timer 0:" + count);
+                if (count === 0){
+                    clearInterval(questionIntervalId);
+                    wrongAnswer++;
+                    
+                }
+
+            
+                
+            
+        }
+
+
+        })
+
+
+
+
+
+
+
+
 
 
     </script>

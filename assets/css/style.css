@@ -1,3 +1,31 @@
 .jumbotron{
-    backround-image: 
+    align-content: center;
+    color: whitesmoke;
+    text-align: center;
+    background: url(../images/marvel.gif) center;
+    
+    }
+.container{
+    text-align: center;
+    
+}
+#timer{
+    text-align: center;
+    font-size: 20px;
+    color:red;
+}
+#Question{
+    text-align: center;
+    font-size: 15px;
+}
+#buttons{
+    text-align: center;
+    margin-bottom: 5px;
+    word-spacing: 20px;
+}
+#finishButton{
+    text-align: center;
+}
+#results{
+    text-align: center;
 }

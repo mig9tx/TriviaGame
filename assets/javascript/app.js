@@ -24,7 +24,7 @@ var questions = [{
     answer: '1',
     picture: './assets/images/thor.gif'
 }, {
-    question: "Marvel\'s The Avengers is the sixth movie released and is the culmination of wat is known to be Phase One of the MCU. Which of these chracters is not one of the original Avengers?",
+    question: "Marvel\'s The Avengers is the sixth movie released and is the culmination of what is known to be Phase One of the MCU. Which of these characters is not one of the original Avengers?",
     choices: ['Black Widow', 'Captain America', 'Ant-Man', 'Hawkeye'],
     answer: '2',
     picture: './assets/images/.gif'
@@ -34,12 +34,12 @@ var questions = [{
     answer: '1',
     picture: '.assets/images/.gif'
 }, {
-    question: 'In Captain America: The Winter Soldier, what is the name of Captain\s best frreind who turns out to be alive as the Winter Soldier?',
+    question: 'In Captain America: The Winter Soldier, what is the name of Captain\s best friend who turns out to be alive as the Winter Soldier?',
     choices: ['Steve Rodgers', 'Bucky Barnes', 'Sam Wilson', 'Peter Parker'],
     answer: '1',
     picture: '.assets/images/.gif'
 }, {
-    question: 'In Captain America: Civil War, who is Capatain protecting the Winter Soldier from?',
+    question: 'In Captain America: Civil War, who is Captain protecting the Winter Soldier from?',
     choices: ['Thor', 'Hulk', 'Iron-Man', 'Red Skull'],
     answer: '2',
     picture: '.assets/images/.gif'

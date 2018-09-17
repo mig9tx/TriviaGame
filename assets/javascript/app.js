@@ -34,7 +34,7 @@ var questions = [{
     answer: '1',
     picture: '.assets/images/.gif'
 }, {
-    question: 'In Captain America: The Winter Soldier, what is the name of Captain\s best friend who turns out to be alive as the Winter Soldier?',
+    question: 'In Captain America: The Winter Soldier, what is the name of Captain\'s best friend who turns out to be alive as the Winter Soldier?',
     choices: ['Steve Rodgers', 'Bucky Barnes', 'Sam Wilson', 'Peter Parker'],
     answer: '1',
     picture: '.assets/images/.gif'
@@ -77,7 +77,8 @@ $(document).ready(function () {
     //add start button to element with buttons id
     function initialize() {
         var button = $("#buttons").html("<div>START</div>");
-        button.addClass("btn btn-primary btn-lg");
+        button.addClass("btn btn-success btn-lg");
+        var rules = $("#rules").html("<br><p id='rules'>You will have 90 seconds to answer twelve questions regarding the Marvel Studios movies released in the last 10 years.</p><br><p>Press START to begin</p>")
         gameStart();
     };
     initialize();//calls the function
@@ -85,6 +86,7 @@ $(document).ready(function () {
     function gameStart() {
         $("#buttons").on("click", function () {//even listener
             $("#buttons").hide("#buttons");//hides start button
+            $("#rules").hide("#rules");//hides rules
             displayQuestions();//calls display question function
             questionIntervalId = setInterval(questionTimeout, 1000);//set questionIntervalId to run the setInterval function with questionTimeout every 1 second
             // question1(); original functions for the tougher homework
@@ -94,11 +96,12 @@ $(document).ready(function () {
     function displayQuestions() {//iterates through array of objects question property
         for (var i = 0; i < questions.length; i++) {//for loop to pull questions
             var question = $('#Question'); //defines question variable and assigns it the jQuery selector of element with Question id.
-            question.append("<div id='question" + i + "'>" + questions[i].question + "</div>");//add IDs to question divs based on index id.
+            question.append("<div class='font-weight-bold' id='question" + i + "'> " + questions[i].question + " </div>");//add IDs to question divs based on index id.
             for (var j = 0; j < questions[i].choices.length; j++) {//for loop to choose choices 
                 var answerId = "answer" + i + "-" + j;//answerId gives each group of choices per question a specific id
-                question.append("<input type='radio' name='choice" + i + "' id='" + answerId + "' value='" + j + "'/>" +
-                    "<label for='" + answerId + "' >" + questions[i].choices[j] + "</label>");//adds the <input> properties to properly define each group so that only one radio button is selcted and gives a value to each radio button for comparison to the answer value assigned in the object property for the question.
+                question.append("<input type='radio' name='choice" + i + "' id='" + answerId + "' value='" + j + "'/> " +
+                    " <label for='" + answerId + "'>" + questions[i].choices[j] + "</label>");//displays the proper choices based on the index of the question
+                    //adds the <input> properties to properly define each group so that only one radio button is selcted and gives a value to each radio button for comparison to the answer value assigned in the object property for the question.
             }
         }
         var finishButton = $("<div>FINISH</div>");
@@ -142,7 +145,7 @@ $(document).ready(function () {
         $("#finishButton").hide("#finishButton");
         $("#Question").hide("#Question");
         $("#timer").hide("#timer");
-        $("#results").html("<div>Results <br> Answered Correct: " + correctAnswers + "<br> Answered Incorrect: " + wrongAnswers + "<br> Unanswered: " + unanswered + "</div>");
+        $("#results").html("<h2>Results</h2> <br> Answered Correct: " + correctAnswers + "<br> Answered Incorrect: " + wrongAnswers + "<br> Unanswered: " + unanswered + "</div>");
         clearInterval(questionIntervalId);
         // console.log('correct= ' + correctAnswers);
         // console.log('unanswered= ' + unanswered);

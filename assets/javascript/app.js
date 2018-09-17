@@ -87,6 +87,7 @@ $(document).ready(function () {
         $("#buttons").on("click", function () {//even listener
             $("#buttons").hide("#buttons");//hides start button
             $("#rules").hide("#rules");//hides rules
+            $(".footer").hide(".footer");//hides footer
             displayQuestions();//calls display question function
             questionIntervalId = setInterval(questionTimeout, 1000);//set questionIntervalId to run the setInterval function with questionTimeout every 1 second
             // question1(); original functions for the tougher homework
